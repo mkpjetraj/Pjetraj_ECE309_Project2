@@ -2,6 +2,7 @@
 #include "core/message.h"
 #include <cstddef>
 
+
 class Conversation {
 public:
     // Empty conversation: size() == 0, no allocation yet.
@@ -22,15 +23,13 @@ public:
     Conversation& operator=(Conversation&& other) noexcept;
 
     // Appends m, growing the backing array if needed. Amortized O(1) —
-    // document and justify your growth strategy in the design log
-    // (see Appendix C if you want a refresher first).
+    //
     void append(Message m);
 
     // Number of messages currently stored.
     std::size_t size() const noexcept;
 
-    // Bounds-checked access. Decide what happens on i >= size() (throw,
-    // assert, whatever you pick) and test that behavior explicitly.
+    // Bounds-checked access. Decide what happens on i >= size().
     const Message& at(std::size_t i) const;
 
     // Range-for iteration, oldest message first. begin() == end() when
@@ -39,6 +38,7 @@ public:
     const Message* end()   const noexcept;
 
 private:
+//private members - data_ is passed as pointer to heap array
     Message*    data_ = nullptr;
     std::size_t size_ = 0;
     std::size_t capacity_ = 0;
