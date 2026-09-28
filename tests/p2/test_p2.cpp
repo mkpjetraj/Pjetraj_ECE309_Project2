@@ -1,9 +1,5 @@
 // tests/p2/test_p2.cpp
 //
-// YOUR test suite goes here. At least 12 assert-based test cases — see
-// spec §5 for the required categories and the sample test for the
-// expected level of rigor.
-//
 // test functions 1-12 defined below and called in main()
 //
 // my classes 

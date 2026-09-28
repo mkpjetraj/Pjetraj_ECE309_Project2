@@ -8,9 +8,8 @@ public:
 
     struct Out { std::string safe_text; bool sentinel_found; };
 
-    // Feed the next chunk. Returns text guaranteed NOT to be part of
-    // the sentinel (safe to print immediately) and whether the
-    // sentinel has now been fully seen.
+    // Feed the next chunk. Returns text guaranteed not to be part of
+    // the sentinel and whether the sentinel has now been fully seen.
     Out feed(std::string_view chunk);
 
     // Call once, after the stream ends, to release any text still
@@ -19,7 +18,5 @@ public:
 
 private:
     std::string sentinel_;
-    std::string pending_;   // holds back at most sentinel_.size() - 1
-                             // trailing characters that could still
-                             // become the start of the sentinel
+    std::string pending_;   // holds back at most sentinel_.size() - 1 chars
 };
